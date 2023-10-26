@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPIRE RECORDS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&display=swap">
+    <link rel="icon" type="image/x-icon" href="convini_2.gif">
+
+    <style>
+        /* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-2/cur116.cur), auto !important;} /* End https://www.cursors-4u.com */
+      
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.slider-container {
+    text-align: center;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    position: absolute;
+    animation: fade 15s infinite;
+}
+
+
+
+
+#slide1:checked ~ .slider .slide:nth-child(1),
+#slide2:checked ~ .slider .slide:nth-child(2),
+#slide3:checked ~ .slider .slide:nth-child(3),
+#slide4:checked ~ .slider .slide:nth-child(4),
+#slide5:checked ~ .slider .slide:nth-child(5) {
+    animation: none;
+    opacity: 1;
+}
+
+        .line-height-example {
+    line-height: 1.5;
+}
+        .letter-spacing-example {
+    letter-spacing: 0.3px;
+}
+        body {
+          font-family: 'Advent Pro', sans-serif;
+        }
+        
+        #specific-image:hover {
+          filter: invert(70%);
+        }
+                body {
+                    width: 1000px;
+                    margin: 0 auto;
+                }
+                .clear {
+                    clear: both;
+                }
+                #aside {
+                    float: left;
+                    width: 290px;
+                    /** background-color: #eaff00;**/
+                }
+                body {
+          background-color: rgba(0, 0, 0, 0.957); 
+        }
+        
+        #navigtion {
+          float: right; /* 왼쪽으로 정렬 */
+          width: 30px; /* 원하는 너비 설정 */
+        }
+        
+        #aside {
+          float: left;
+          width: 600px; /* 원하는 너비 설정 */
+          color: rgb(255, 247, 0);
+        }
+        
+        #section {
+          float: left;
+          width: 700px; /* 원하는 너비 설정 */
+          color: rgb(255, 247, 0);
+        }
+        
+        
+               a{margin-left:100px;}
+        
+                a:link, a:visited{
+                    background-color: rgba(104, 0, 26, 0);
+                    color: white;
+                    padding: 10px 5px;
+                    text-decoration:none;
+                    display: inline-block;
+                }
+        
+                a:hover,a:active{
+                    background-color:rgba(145, 137, 137, 0);
+                    color: rgb(55, 0, 255);
+                }
+        
+                a:link{
+                    color:rgb(251, 255, 0);
+                    text-decoration:none;
+                }
+                a:visited {
+                    color:rgb(0, 38, 255);
+                    text-decoration:none;
+                }
+                a:hover{
+                    color:red;
+                    text-decoration:none;
+                }
+                a:active{
+                    color:yellow;
+                    text-decoration:none;
+                }
+        
+                .centered-header {
+                      text-align: center;
+                 }
+                 #footer {
+          clear: both;
+          margin-top: 400px; /* 이미지와의 간격 조절 */
+          background-color: #33333300; /* 원하는 배경 색상으로 설정 */
+          color: rgb(255, 242, 3); /* 텍스트 색상 설정 */
+          padding: 20px;
+          text-align: center;
+        }
+      
+      
+                 
+            </style>
+        <script type="text/javascript">
+            // <![CDATA[
+            var colour="random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+            var sparkles=50;
+            
+            /****************************
+            *  Tinkerbell Magic Sparkle *
+            *(c)2005-13 mf2fm web-design*
+            *  http://www.mf2fm.com/rv  *
+            * DON'T EDIT BELOW THIS BOX *
+            ****************************/
+            var x=ox=400;
+            var y=oy=300;
+            var swide=800;
+            var shigh=600;
+            var sleft=sdown=0;
+            var tiny=new Array();
+            var star=new Array();
+            var starv=new Array();
+            var starx=new Array();
+            var stary=new Array();
+            var tinyx=new Array();
+            var tinyy=new Array();
+            var tinyv=new Array();
+            
+            window.onload=function() { if (document.getElementById) {
+              var i, rats, rlef, rdow;
+              for (var i=0; i<sparkles; i++) {
+                var rats=createDiv(3, 3);
+                rats.style.visibility="hidden";
+                rats.style.zIndex="999";
+                document.body.appendChild(tiny[i]=rats);
+                starv[i]=0;
+                tinyv[i]=0;
+                var rats=createDiv(5, 5);
+                rats.style.backgroundColor="transparent";
+                rats.style.visibility="hidden";
+                rats.style.zIndex="999";
+                var rlef=createDiv(1, 5);
+                var rdow=createDiv(5, 1);
+                rats.appendChild(rlef);
+                rats.appendChild(rdow);
+                rlef.style.top="2px";
+                rlef.style.left="0px";
+                rdow.style.top="0px";
+                rdow.style.left="2px";
+                document.body.appendChild(star[i]=rats);
+              }
+              set_width();
+              sparkle();
+            }}
+            
+            function sparkle() {
+              var c;
+              if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+                ox=x;
+                oy=y;
+                for (c=0; c<sparkles; c++) if (!starv[c]) {
+                  star[c].style.left=(starx[c]=x)+"px";
+                  star[c].style.top=(stary[c]=y+1)+"px";
+                  star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+                  star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+                  star[c].style.visibility="visible";
+                  starv[c]=50;
+                  break;
+                }
+              }
+              for (c=0; c<sparkles; c++) {
+                if (starv[c]) update_star(c);
+                if (tinyv[c]) update_tiny(c);
+              }
+              setTimeout("sparkle()", 40);
+            }
+            
+            function update_star(i) {
+              if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+              if (starv[i]) {
+                stary[i]+=1+Math.random()*3;
+                starx[i]+=(i%5-2)/5;
+                if (stary[i]<shigh+sdown) {
+                  star[i].style.top=stary[i]+"px";
+                  star[i].style.left=starx[i]+"px";
+                }
+                else {
+                  star[i].style.visibility="hidden";
+                  starv[i]=0;
+                  return;
+                }
+              }
+              else {
+                tinyv[i]=50;
+                tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+                tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+                tiny[i].style.width="2px";
+                tiny[i].style.height="2px";
+                tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
+                star[i].style.visibility="hidden";
+                tiny[i].style.visibility="visible"
+              }
+            }
+            
+            function update_tiny(i) {
+              if (--tinyv[i]==25) {
+                tiny[i].style.width="1px";
+                tiny[i].style.height="1px";
+              }
+              if (tinyv[i]) {
+                tinyy[i]+=1+Math.random()*3;
+                tinyx[i]+=(i%5-2)/5;
+                if (tinyy[i]<shigh+sdown) {
+                  tiny[i].style.top=tinyy[i]+"px";
+                  tiny[i].style.left=tinyx[i]+"px";
+                }
+                else {
+                  tiny[i].style.visibility="hidden";
+                  tinyv[i]=0;
+                  return;
+                }
+              }
+              else tiny[i].style.visibility="hidden";
+            }
+            
+            document.onmousemove=mouse;
+            function mouse(e) {
+              if (e) {
+                y=e.pageY;
+                x=e.pageX;
+              }
+              else {
+                set_scroll();
+                y=event.y+sdown;
+                x=event.x+sleft;
+              }
+            }
+            
+            window.onscroll=set_scroll;
+            function set_scroll() {
+              if (typeof(self.pageYOffset)=='number') {
+                sdown=self.pageYOffset;
+                sleft=self.pageXOffset;
+              }
+              else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+                sdown=document.body.scrollTop;
+                sleft=document.body.scrollLeft;
+              }
+              else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+                sleft=document.documentElement.scrollLeft;
+                sdown=document.documentElement.scrollTop;
+              }
+              else {
+                sdown=0;
+                sleft=0;
+              }
+            }
+            
+            window.onresize=set_width;
+            function set_width() {
+              var sw_min=999999;
+              var sh_min=999999;
+              if (document.documentElement && document.documentElement.clientWidth) {
+                if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+                if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+              }
+              if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+                if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+                if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+              }
+              if (document.body.clientWidth) {
+                if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+                if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+              }
+              if (sw_min==999999 || sh_min==999999) {
+                sw_min=800;
+                sh_min=600;
+              }
+              swide=sw_min;
+              shigh=sh_min;
+            }
+            
+            function createDiv(height, width) {
+              var div=document.createElement("div");
+              div.style.position="absolute";
+              div.style.height=height+"px";
+              div.style.width=width+"px";
+              div.style.overflow="hidden";
+              return (div);
+            }
+            
+            function newColour() {
+              var c=new Array();
+              c[0]=255;
+              c[1]=Math.floor(Math.random()*256);
+              c[2]=Math.floor(Math.random()*(256-c[1]/2));
+              c.sort(function(){return (0.5 - Math.random());});
+              return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+            }
+            // ]]>
+            </script>
+</head>
+<body>
+       
+    <div id= 'header' id='border'>
+         <a href="Index.html">  <div class="neon-sign-container"> <img src="logo.png" alt="empire records" id="specific-image" width="300"></div></a>
+    </div>
+    <div class="image-container">
+        <nav class="navigation-menu">
+            <a href="story.html">Story</a>
+            <a href="character.html">Characters</a>
+            <a href="soundtrack.html">soundtrack</a>
+            <a href="behindcut.html">behind cut</a>
+            <a href="trailer.html">trailer</a>
+        </nav>
+    </div>
+    <h1></h1>
+    <div class="slider-container">
+        <input type="radio" name="slider" id="slide1" checked>
+        <input type="radio" name="slider" id="slide2">
+        <input type="radio" name="slider" id="slide3">
+        <input type="radio" name="slider" id="slide4">
+        <input type="radio" name="slider" id="slide5">
+        <div class="slider">
+            <div class="slide">
+                <img src="Be1.jpeg" width="600" alt="behind cut 1">
+            </div>
+            <div class="slide">
+                <img src="Be2.jpeg" width="600" alt="behind cut 2">
+            </div>
+            <div class="slide">
+                <img src="be3.webp" width="600" alt="behind cut 3">
+            </div>
+            <div class="slide">
+                <img src="be4.webp" width="600" alt="behind cut 4">
+            </div>
+            <div class="slide">
+                <img src="be5.jpeg" width="600" alt="behind cut 5">
+            </div>
+        </div>
+    </div>
+
+    <div class='clear'></div>
+    <div id='footer'>
+        <img src="WBlogo.png" width="50">
+        <img src="IMBDlogo.png" width="50">
+        <img src="DOLBYlogo.png" width="50">
+    <h4>Copyright 2023.Hyunaim(sylvie).All rights reserved.</h4>
+    <h5>66 Kaywondaehangno (Naeson-dong), Uiwang-si, Gyeonggi-do, Korea Zip Code. 16038</h5>    </div>
+</body>
+</html>

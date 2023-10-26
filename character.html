@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMPIRE RECORDS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400&display=swap">
+    <link rel="icon" type="image/x-icon" href="convini_2.gif">
+
+    <style>
+        /* Start https://www.cursors-4u.com */ * {cursor: url(https://cur.cursors-4u.net/cursors/cur-2/cur116.cur), auto !important;} /* End https://www.cursors-4u.com */
+        .line-height-example {
+    line-height: 1.5;
+}
+        .letter-spacing-example {
+    letter-spacing: 0.3px;
+}
+        body {
+          font-family: 'Advent Pro', sans-serif;
+        }
+        
+        #specific-image:hover {
+          filter: invert(70%);
+        }
+                body {
+                    width: 1000px;
+                    margin: 0 auto;
+                }
+                .clear {
+                    clear: both;
+                }
+                #aside {
+                    float: left;
+                    width: 290px;
+                    /** background-color: #eaff00;**/
+                }
+                body {
+          background-color: rgba(0, 0, 0, 0.957); 
+        }
+        
+        #navigtion {
+          float: right; /* 왼쪽으로 정렬 */
+          width: 30px; /* 원하는 너비 설정 */
+        }
+        
+        #aside {
+          float: left;
+          width: 400px; /* 원하는 너비 설정 */
+          color: rgb(255, 247, 0);
+          
+        }
+        
+        #section {
+          float: left;
+          width: 400px; /* 원하는 너비 설정 */
+          color: rgb(255, 247, 0);
+          padding: 10px 5px;
+        }
+        
+        
+               a{margin-left:100px;}
+        
+                a:link, a:visited{
+                    background-color: rgba(104, 0, 26, 0);
+                    color: white;
+                    padding: 10px 5px;
+                    text-decoration:none;
+                    display: inline-block;
+                }
+        
+                a:hover,a:active{
+                    background-color:rgba(145, 137, 137, 0);
+                    color: rgb(55, 0, 255);
+                }
+        
+                a:link{
+                    color:rgb(251, 255, 0);
+                    text-decoration:none;
+                }
+                a:visited {
+                    color:rgb(0, 38, 255);
+                    text-decoration:none;
+                }
+                a:hover{
+                    color:red;
+                    text-decoration:none;
+                }
+                a:active{
+                    color:yellow;
+                    text-decoration:none;
+                }
+        
+                .centered-header {
+                      text-align: center;
+                 }
+                 #footer {
+          clear: both;
+          margin-top: 70px; /* 이미지와의 간격 조절 */
+          background-color: #33333300; /* 원하는 배경 색상으로 설정 */
+          color: rgb(255, 242, 3); /* 텍스트 색상 설정 */
+          padding: 20px;
+          text-align: center;
+        }
+      
+      
+                 
+            </style>
+     <script type="text/javascript">
+        // <![CDATA[
+        var colour="random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+        var sparkles=50;
+        
+        /****************************
+        *  Tinkerbell Magic Sparkle *
+        *(c)2005-13 mf2fm web-design*
+        *  http://www.mf2fm.com/rv  *
+        * DON'T EDIT BELOW THIS BOX *
+        ****************************/
+        var x=ox=400;
+        var y=oy=300;
+        var swide=800;
+        var shigh=600;
+        var sleft=sdown=0;
+        var tiny=new Array();
+        var star=new Array();
+        var starv=new Array();
+        var starx=new Array();
+        var stary=new Array();
+        var tinyx=new Array();
+        var tinyy=new Array();
+        var tinyv=new Array();
+        
+        window.onload=function() { if (document.getElementById) {
+          var i, rats, rlef, rdow;
+          for (var i=0; i<sparkles; i++) {
+            var rats=createDiv(3, 3);
+            rats.style.visibility="hidden";
+            rats.style.zIndex="999";
+            document.body.appendChild(tiny[i]=rats);
+            starv[i]=0;
+            tinyv[i]=0;
+            var rats=createDiv(5, 5);
+            rats.style.backgroundColor="transparent";
+            rats.style.visibility="hidden";
+            rats.style.zIndex="999";
+            var rlef=createDiv(1, 5);
+            var rdow=createDiv(5, 1);
+            rats.appendChild(rlef);
+            rats.appendChild(rdow);
+            rlef.style.top="2px";
+            rlef.style.left="0px";
+            rdow.style.top="0px";
+            rdow.style.left="2px";
+            document.body.appendChild(star[i]=rats);
+          }
+          set_width();
+          sparkle();
+        }}
+        
+        function sparkle() {
+          var c;
+          if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+            ox=x;
+            oy=y;
+            for (c=0; c<sparkles; c++) if (!starv[c]) {
+              star[c].style.left=(starx[c]=x)+"px";
+              star[c].style.top=(stary[c]=y+1)+"px";
+              star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+              star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+              star[c].style.visibility="visible";
+              starv[c]=50;
+              break;
+            }
+          }
+          for (c=0; c<sparkles; c++) {
+            if (starv[c]) update_star(c);
+            if (tinyv[c]) update_tiny(c);
+          }
+          setTimeout("sparkle()", 40);
+        }
+        
+        function update_star(i) {
+          if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+          if (starv[i]) {
+            stary[i]+=1+Math.random()*3;
+            starx[i]+=(i%5-2)/5;
+            if (stary[i]<shigh+sdown) {
+              star[i].style.top=stary[i]+"px";
+              star[i].style.left=starx[i]+"px";
+            }
+            else {
+              star[i].style.visibility="hidden";
+              starv[i]=0;
+              return;
+            }
+          }
+          else {
+            tinyv[i]=50;
+            tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+            tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+            tiny[i].style.width="2px";
+            tiny[i].style.height="2px";
+            tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
+            star[i].style.visibility="hidden";
+            tiny[i].style.visibility="visible"
+          }
+        }
+        
+        function update_tiny(i) {
+          if (--tinyv[i]==25) {
+            tiny[i].style.width="1px";
+            tiny[i].style.height="1px";
+          }
+          if (tinyv[i]) {
+            tinyy[i]+=1+Math.random()*3;
+            tinyx[i]+=(i%5-2)/5;
+            if (tinyy[i]<shigh+sdown) {
+              tiny[i].style.top=tinyy[i]+"px";
+              tiny[i].style.left=tinyx[i]+"px";
+            }
+            else {
+              tiny[i].style.visibility="hidden";
+              tinyv[i]=0;
+              return;
+            }
+          }
+          else tiny[i].style.visibility="hidden";
+        }
+        
+        document.onmousemove=mouse;
+        function mouse(e) {
+          if (e) {
+            y=e.pageY;
+            x=e.pageX;
+          }
+          else {
+            set_scroll();
+            y=event.y+sdown;
+            x=event.x+sleft;
+          }
+        }
+        
+        window.onscroll=set_scroll;
+        function set_scroll() {
+          if (typeof(self.pageYOffset)=='number') {
+            sdown=self.pageYOffset;
+            sleft=self.pageXOffset;
+          }
+          else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+            sdown=document.body.scrollTop;
+            sleft=document.body.scrollLeft;
+          }
+          else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+            sleft=document.documentElement.scrollLeft;
+            sdown=document.documentElement.scrollTop;
+          }
+          else {
+            sdown=0;
+            sleft=0;
+          }
+        }
+        
+        window.onresize=set_width;
+        function set_width() {
+          var sw_min=999999;
+          var sh_min=999999;
+          if (document.documentElement && document.documentElement.clientWidth) {
+            if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+            if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+          }
+          if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+            if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+            if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+          }
+          if (document.body.clientWidth) {
+            if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+            if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+          }
+          if (sw_min==999999 || sh_min==999999) {
+            sw_min=800;
+            sh_min=600;
+          }
+          swide=sw_min;
+          shigh=sh_min;
+        }
+        
+        function createDiv(height, width) {
+          var div=document.createElement("div");
+          div.style.position="absolute";
+          div.style.height=height+"px";
+          div.style.width=width+"px";
+          div.style.overflow="hidden";
+          return (div);
+        }
+        
+        function newColour() {
+          var c=new Array();
+          c[0]=255;
+          c[1]=Math.floor(Math.random()*256);
+          c[2]=Math.floor(Math.random()*(256-c[1]/2));
+          c.sort(function(){return (0.5 - Math.random());});
+          return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+        }
+        // ]]>
+        </script>   
+</head>
+<body>
+       
+    <div id= 'header' id='border'>
+         <a href="Index.html">  <div class="neon-sign-container"> <img src="logo.png" alt="empire recordes" id="specific-image" width="300"></h1></div></a>
+   </div>
+<div class="image-container">
+    <nav class="navigation-menu">
+        <a href="story.html">Story</a>
+        <a href="character.html">Characters</a>
+        <a href="soundtrack.html">soundtrack</a>
+        <a href="behindcut.html">behind cut</a>
+        <a href="trailer.html">trailer</a>
+    </nav>
+<div class="clear"></div>
+
+<h1> </h1>
+
+
+
+<div id='aside'>
+    <img src="01.png"width="500"> 
+</div>
+
+<div id='section'>
+    
+        <h1>Lucas <small><small>(Rory Cochrane)</small></small></h1>
+        <h4><i>In the immortal words of The Doors, 'The time to hesitate is through.'</i></h4>
+        <h5>엠파이어 레코드의 직원. 카지노에서 돈을 몽땅 잃은 장본인이기도 하다. 
+            레코드점을 지키고 싶은 마음은 1등이지만 충동적인 행동이 강하다. 
+            엉뚱하지만 마냥 미워할 수 많은 없는 캐릭터이다.
+        </h5>
+        
+        
+
+</div>
+
+<div id='aside'>
+    <img src="02.png"width="500"> 
+</div>
+<div id='section'>
+    
+        <h1>Corey Mason <small><small>(Liv Tyler)</small></small></h1>
+        <h4><i>'My dad always said that there's 24 usable hours in every day.'</i></h4>
+        <h5>엠파이어 레코드의 직원. 바르게 자라야 한다는 강박이 있다.
+            암페타민 중독으로 인한 히스테리를 부리며 결핍이 있는 존재.
+            그런 결핍을 채우기 위해 매닝을 유혹하려고 시도하지만 실패하고 자신을 진정 사랑하는 A.J와의 관계에서 고민한다.
+        </h5>
+        
+
+</div>
+<div id='aside'>
+    <img src="03.png"width="500"> 
+</div>
+<div id='section'>
+    
+        <h1>A.J <small><small>(Johnny Whitworth)</small></small></h1>
+        <h4><i>' Well, that's good, because I have to tell Corey I love her by 1:37.'</i></h4>
+        <h5>엠파이어 레코드의 직원. 미술을 좋아하며 코리에게 사랑을 고백한다. 그녀의 근처에 있기위해
+            보스턴에 있는 미술 학교에 다니기로 결심한다.
+            주변인들에게 평이 좋으며 특히 루카스를 챙기는 모습을 보여준다.
+            사람들에게 좋은 영향을 주려고 한다.
+        </h5>
+        
+
+</div>
+<div id='aside'>
+    <img src="04.png"width="500"> 
+</div>
+<div id='section'>
+    
+        <h1>Debra <small><small>(Robin Tunney)</small></small></h1>
+        <h4><i>' I went to rock and roll heaven, and I wasn't on the guest list.'</i></h4>
+        <h5>엠파이어 레코드의 직원. 적대적이며 비관적인 성향이 강하다. 
+            결심을 하고 혼자 거울 앞에 삭발하는 모습을 보이는 둥 반항적이다. 
+            코리를 응원하며 그 대가로 전체 직원들이 데보라를 향한 장례식을 치뤘다.
+            동료들과 함께 자기 자신을 이겨내는 성장과정을 지켜볼 수 있다.
+        </h5>
+        
+   
+<div class='clear'></div>
+
+<div id='footer'>
+    <img src="WBlogo.png" width="50">
+    <img src="IMBDlogo.png" width="50">
+    <img src="DOLBYlogo.png" width="50">
+<h4>Copyright 2023.Hyunaim(sylvie).All rights reserved.</h4>
+<h5>66 Kaywondaehangno (Naeson-dong), Uiwang-si, Gyeonggi-do, Korea Zip Code. 16038</h5>   </div>
+   <div class='clear'></div>
+</body>
+</html>
