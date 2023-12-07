@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href='https://fonts.googleapis.com/css?family=Courier Prime' rel='stylesheet'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="scrollbar.css">
+    <link rel="icon" href="icon.gif">
+    <style>
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+  font-family: 'Courier Prime';
+}
+
+
+.main {
+  width: 1200px;
+  height: 655px;
+  background: rgb(228, 228, 228);
+  opacity: 1;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  overflow: hidden;
+}
+.header {
+  width: 1100px;
+  height: 100px;
+  background: rgb(0, 0, 0);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  text-align: left;
+}
+.nav {
+  width: 340px;
+  height: 750px;
+  background: rgb(255, 247, 201);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 1100px;
+  overflow: hidden;
+}
+.navigation-menu a {
+            display: block;
+            text-decoration: none;
+            color: #fbe600;
+            margin: 10px 0;
+        }
+ 
+ .navigation-menu {
+            position: absolute;
+            top: 180px;
+            left: 0px;
+            padding: 0px;
+        }
+ a:link, a:visited {
+            background-color: rgb(0, 0, 0);
+            color: white;
+            padding: 10px 40px;
+            text-decoration: none;
+            display: block;
+        }
+
+.navigation-menu a:hover {
+    background-color: white;
+    color: black;
+}
+
+
+.footer {
+  width: 340px;
+  height: 60px;
+  background: rgb(0, 0, 0);
+  opacity: 1;
+  position: absolute;
+  top: 695px;
+  left: 1100px;
+  overflow: hidden;
+  color: white;
+}
+
+img.logo {
+            cursor: pointer;
+        }
+
+
+.scroll_box {
+  width: 1000px;
+  height: 620px;
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+
+.inner_content {
+  height: 25px;
+}
+
+.scroll_box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll_box::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.scroll_box::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgb(0, 0, 0);
+}
+
+.scroll_box::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+
+.image-container {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+    </style>
+    
+</head>
+
+<body>
+    <script>
+        function redirectToIndex() {
+            window.location.href = "index.html";
+        }
+        function preloadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = resolve;
+    img.onerror = reject;
+  });
+}
+
+function porloadImages(srcs) {
+  return Promise.all(srcs.map(preloadImage));
+}
+    </script>
+
+<div class="main">
+  <div class="scroll_box">
+      <div class="image-container">
+          <img src="DRAWING1.png" width="990">
+          <div class="image-overlay">
+              <p>Octopus, 2023</p>
+          </div>
+      </div>
+      <div class="image-container">
+          <img src="DRAWING2.PNG" width="990">
+          <div class="image-overlay">
+              <p>Hair? Star, 2023</p>
+          </div>
+      </div>
+      <div class="image-container">
+          <img src="DRAWING3.jpg" width="990">
+          <div class="image-overlay">
+              <p>Cool Air, 2022</p>
+          </div>
+      </div>
+      <div class="image-container">
+          <img src="DRAWING4.jpg" width="990">
+          <div class="image-overlay">
+              <p>XXXX, 2023</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+    
+    <div class="header">
+        <br>
+        <h2>۞ Drawing ۞</h2>
+    </div>
+   
+    <div class="nav">
+        <img src="logo.png" width="300" alt="로고" class="logo" onclick="redirectToIndex()">
+
+        <nav class="navigation-menu">
+            <img src="star2.png" width="40">
+            <img src="star1.png" width="40">
+            <img src="star2.png" width="40">
+            <img src="star1.png" width="40">
+            <img src="star2.png" width="40">
+            <a href="METODAY.html">✶ ME TODAY</a>
+            <a href="GRAPHIC.html">✙ Graphic</a>
+            <a href="DRAWING.html">۞ Drawing</a>
+            <a href="PHOTO.html">✣ Photo</a>
+            <a href="VIDEO.html">✥ Video</a>
+            <a href="MEFUTURE.html">✰ ME FUTURE ♪</a>
+            <img src="star2.png" width="40">
+            <img src="star1.png" width="40">
+            <img src="star2.png" width="40">
+            <img src="star1.png" width="40">
+            <img src="star2.png" width="40">
+        </nav>
+    </div>
+    
+    <div class="footer">
+        Copyright 2023. hyunaim all rights reserved.
+        <br>
+        ins.<u>@kaya.im</u>
+    </div>
+
+</body>
+</html>
